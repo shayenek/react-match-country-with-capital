@@ -2,7 +2,14 @@ import { useEffect, useState } from 'react';
 
 import './App.css';
 
-import { EUCountriesData, NACountriesData } from './data/CountriesData';
+import {
+	EUCountriesData,
+	NACountriesData,
+	SACountriesData,
+	AsiaCountriesData,
+	AfricaCountriesData,
+	OceaniaCountriesData,
+} from './data/CountriesData';
 import { CountryWithCapital, FlattenedData } from './types';
 
 const shuffleArray = (array: FlattenedData[]) => {
@@ -87,12 +94,30 @@ export default function App() {
 	};
 
 	const changeCountriesList = (e: React.ChangeEvent<HTMLSelectElement>) => {
-		if (e.target.value === 'EU') {
-			setChosenGameType('EU');
-			setCountriesData(EUCountriesData);
-		} else {
-			setChosenGameType('NA');
-			setCountriesData(NACountriesData);
+		setChosenGameType(e.target.value);
+
+		switch (e.target.value) {
+			case 'EU':
+				setCountriesData(EUCountriesData);
+				break;
+			case 'NA':
+				setCountriesData(NACountriesData);
+				break;
+			case 'SA':
+				setCountriesData(SACountriesData);
+				break;
+			case 'AS':
+				setCountriesData(AsiaCountriesData);
+				break;
+			case 'AF':
+				setCountriesData(AfricaCountriesData);
+				break;
+			case 'OC':
+				setCountriesData(OceaniaCountriesData);
+				break;
+			default:
+				setCountriesData(EUCountriesData);
+				break;
 		}
 	};
 
@@ -136,7 +161,9 @@ export default function App() {
 				<>
 					<div className="flex flex-col">
 						<h1 className="text-4xl text-white font-bold">Countries and Capitals</h1>
-
+						<h2 className="text-2xl text-white font-bold">
+							You matched {matchedPairs} out of {totalPairs} pairs
+						</h2>
 						<select
 							className="p-2 rounded-lg m-6"
 							onChange={changeCountriesList}
@@ -157,7 +184,7 @@ export default function App() {
 								key={index}
 								onClick={() => handleClick(item)}
 								className={
-									'w-48 h-20 m-2 bg-sky-500 text-white font-bold rounded-lg transition-all duration-400 hover:bg-sky-700' +
+									'w-48 h-16 m-2 bg-sky-500 text-white font-bold rounded-lg transition-all duration-400 hover:bg-sky-700' +
 									(item.disabled ? ' hidden' : '') +
 									(item.mismatched ? '  !bg-red-500' : '') +
 									(item === firstSelection ? ' !bg-cyan-950' : '')
