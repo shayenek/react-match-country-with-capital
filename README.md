@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# Match Country with Capital Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A small React application that challenges users to match countries with their respective capitals and vice-versa.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+Before running the game, make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
-### `npm start`
+1. Clone this repository:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+git clone https://github.com/shayenek/react-match-country-with-capital.git react-match-country-with-capital
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. Navigate to the project's directory:
 
-### `npm test`
+```bash
+cd react-match-country-with-capital
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Install the project's dependencies:
 
-### `npm run build`
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Run the application:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
 
-### `npm run eject`
+This will launch the application and open it in your default browser. If the browser doesn't open automatically, you can access the game by visiting http://localhost:3000.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## How to Play
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Select a continent from the dropdown menu.				
+2. You will be presented with a list of countries and their respective capitals in a random, shuffled order.
+3. Click on one of the items in the list to select it.
+4. Now try to match a selected country/capital with its correct pair by clicking on another item in the list.
+5. If you are correct, the pair will be removed from the list and you will be awarded 1 point.
+6. If you are incorrect, the pair will remain in the list and you will be deducted 1 point.
+7. The game ends when you have matched all the pairs correctly.
+8. You can play the game again by clicking on the "Play Again" button at the end.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Contributing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Contributions are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) license.
