@@ -1,5 +1,8 @@
 # Match Country with Capital Game
 
+<img width="1028" alt="image" src="https://github.com/shayenek/react-match-country-with-capital/assets/6333459/963facce-9034-4564-938b-df8d5ea814ce">
+
+
 A small React application that challenges users to match countries with their respective capitals and vice-versa.
 
 ## Installation
