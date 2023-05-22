@@ -33,6 +33,7 @@ export default function App() {
 	const [secondSelection, setSecondSelection] = useState<FlattenedData | null>(null);
 	const [matchedPairs, setMatchedPairs] = useState<number>(0);
 	const [chosenGameType, setChosenGameType] = useState<string>('EU');
+	const [gameScore, setGameScore] = useState<number>(0);
 
 	useEffect(() => {
 		createGameData();
@@ -44,6 +45,7 @@ export default function App() {
 				setGameData((prevGameData) =>
 					prevGameData.map((item) => {
 						if (item === firstSelection || item === secondSelection) {
+							setGameScore(gameScore - 1);
 							return { ...item, mismatched: true };
 						} else {
 							return item;
@@ -65,7 +67,7 @@ export default function App() {
 						if (item.matchId !== firstSelection.matchId) {
 							return item;
 						} else {
-							console.log('Good Match!');
+							setGameScore(gameScore + 1);
 							return { ...item, disabled: true };
 						}
 					})
@@ -150,6 +152,21 @@ export default function App() {
 			{gameComplete ? (
 				<div className="flex items-center flex-col">
 					<h1 className="text-4xl text-white font-bold">Game Complete!</h1>
+					<h2 className="text-2xl text-white font-bold">
+						You matched <span className="text-sky-500 font-bold">{matchedPairs}</span>{' '}
+						out of <span className="text-sky-500 font-bold">{totalPairs}</span> pairs.
+						Your final score is{' '}
+						<span
+							className={
+								'text-sky-500 font-bold' +
+								(gameScore > 0 ? ' text-green-500' : ' text-red-500')
+							}
+						>
+							{gameScore}
+						</span>
+						.
+					</h2>
+
 					<button
 						className="px-8 py-4 mt-12 rounded-lg m-6 bg-sky-500 text-white text-xl font-bold hover:bg-sky-700"
 						onClick={resetGame}
@@ -162,7 +179,19 @@ export default function App() {
 					<div className="flex flex-col">
 						<h1 className="text-4xl text-white font-bold">Countries and Capitals</h1>
 						<h2 className="text-2xl text-white font-bold">
-							You matched {matchedPairs} out of {totalPairs} pairs
+							You matched{' '}
+							<span className="text-sky-500 font-bold">{matchedPairs}</span> out of{' '}
+							<span className="text-sky-500 font-bold">{totalPairs}</span> pairs. Your
+							current score is{' '}
+							<span
+								className={
+									'text-sky-500 font-bold' +
+									(gameScore < 0 ? ' text-red-500' : '')
+								}
+							>
+								{gameScore}
+							</span>
+							.
 						</h2>
 						<select
 							className="p-2 rounded-lg m-6"
