@@ -30,7 +30,7 @@ npm install
 4. Run the application:
 
 ```bash
-npm start
+npm run start
 ```
 
 ## Usage
