@@ -7,6 +7,7 @@ module.exports = {
 	parserOptions: { ecmaVersion: 8, sourceType: 'module' },
 	ignorePatterns: ['node_modules/*'],
 	extends: ['eslint:recommended'],
+
 	overrides: [
 		{
 			files: ['**/*.ts', '**/*.d.ts', '**/*.tsx'],
@@ -36,7 +37,6 @@ module.exports = {
 				'plugin:prettier/recommended',
 			],
 			rules: {
-				'linebreak-style': ['error', 'windows'],
 				'react/prop-types': 'off',
 
 				'import/order': [
