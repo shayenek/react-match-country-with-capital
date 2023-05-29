@@ -130,6 +130,7 @@ export default function App() {
 		setSecondSelection(null);
 		setMatchedPairs(0);
 		setCountriesData(countriesData);
+		setGameScore(0);
 		createGameData();
 	};
 
@@ -148,11 +149,11 @@ export default function App() {
 	const gameComplete = matchedPairs === totalPairs;
 
 	return (
-		<div className="App | p-32">
+		<div className="App | p-4 md:px-32">
 			{gameComplete ? (
 				<div className="flex items-center flex-col">
-					<h1 className="text-4xl text-white font-bold">Game Complete!</h1>
-					<h2 className="text-2xl text-white font-bold">
+					<h1 className="text-xl md:text-4xl text-white font-bold">Game Complete!</h1>
+					<h2 className="text-lg md:text-2xl text-white font-bold">
 						You matched <span className="text-sky-500 font-bold">{matchedPairs}</span>{' '}
 						out of <span className="text-sky-500 font-bold">{totalPairs}</span> pairs.
 						Your final score is{' '}
@@ -177,8 +178,18 @@ export default function App() {
 			) : (
 				<>
 					<div className="flex flex-col">
-						<h1 className="text-4xl text-white font-bold">Countries and Capitals</h1>
-						<h2 className="text-2xl text-white font-bold">
+						<div className="flex justify-center">
+							<h1 className="text-xl md:text-4xl text-white font-bold">
+								Countries and Capitals
+							</h1>
+							<button
+								className="grow-0 ml-4 bg-red-400 text-md font-bold text-white px-5 hover:bg-red-800 rounded-full md:rounded-lg md:text-lg"
+								onClick={resetGame}
+							>
+								Reset
+							</button>
+						</div>
+						<h2 className="text-lg md:text-2xl text-white font-bold">
 							You matched{' '}
 							<span className="text-sky-500 font-bold">{matchedPairs}</span> out of{' '}
 							<span className="text-sky-500 font-bold">{totalPairs}</span> pairs. Your
@@ -213,7 +224,7 @@ export default function App() {
 								key={index}
 								onClick={() => handleClick(item)}
 								className={
-									'w-48 h-16 m-2 bg-sky-500 text-white font-bold rounded-lg transition-all duration-400 hover:bg-sky-700' +
+									'w-32 md:w-48 h-16 m-2 bg-sky-500 text-white font-bold rounded-lg transition-all duration-400 hover:bg-sky-700' +
 									(item.disabled ? ' hidden' : '') +
 									(item.mismatched ? '  !bg-red-500' : '') +
 									(item === firstSelection ? ' !bg-cyan-950' : '')
